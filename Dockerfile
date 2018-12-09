@@ -18,4 +18,16 @@ RUN \
   cd .. && \
   rm -Rf ps3toolchain
 
+RUN \
+  git clone https://github.com/ps3dev/ps3libraries.git && \
+  cd ps3libraries && \
+  ./libraries.sh && \
+  cd .. && \
+  rm -Rf ps3libraries
+
+RUN \
+  wget http://developer.download.nvidia.com/cg/Cg_3.1/Cg-3.1_April2012_x86_64.deb && \
+  dpkg -i Cg-3.1_April2012_x86_64.deb && \
+  rm Cg-3.1_April2012_x86_64.deb
+
 WORKDIR /build
